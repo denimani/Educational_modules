@@ -1,10 +1,15 @@
-from rest_framework.generics import CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, ListAPIView
 
-from models import EducationalModule
-from serializers import EducationalModuleSerializer
+from educational_modules.models import EducationalModule
+from educational_modules.serializers import EducationalModuleSerializer
 
 
-class EducationalModuleListCreateView(CreateAPIView):
+class EducationalModuleListView(ListAPIView):
+    queryset = EducationalModule.objects.all()
+    serializer_class = EducationalModuleSerializer
+
+
+class EducationalModuleCreateView(CreateAPIView):
     serializer_class = EducationalModuleSerializer
 
 
