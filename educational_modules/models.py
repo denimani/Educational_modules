@@ -15,7 +15,7 @@ class EducationalModule(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название')
     order_number = models.IntegerField(unique=True, verbose_name='Порядковый номер')
     description = models.TextField(verbose_name='Описание', **NULLABLE)
-    user = models.ManyToManyField(User, verbose_name='Создатель модуля', **NULLABLE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Создатель модуля', **NULLABLE)
 
     def __str__(self):
         return self.name
