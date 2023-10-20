@@ -5,3 +5,4 @@ python-dotenv
 djangorestframework-simplejwt
 pillow
 drf-yasg
+flake8
